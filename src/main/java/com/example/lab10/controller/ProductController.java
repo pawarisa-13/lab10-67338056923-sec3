@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
  *
  * ✅ @RestController, @RequestMapping, Constructor Injection ครบแล้ว
  * ✅ endpoint GET /products/{id} ทำเสร็จแล้วเป็นตัวอย่าง (30%)
- * ❌ TODO: เติม method body ของ endpoint ที่เหลือ (70%)
+ * ✅ TODO: เติม method body ของ endpoint ที่เหลือ (70%)
  *
  * Endpoints ที่ต้องทำทั้งหมด:
  *   GET    /products          → Flux<Product>   (ดึงทั้งหมด)
@@ -48,7 +48,7 @@ public class ProductController {
     }
 
     // ══════════════════════════════════════════════════════
-    // ❌ TODO: เติม method body ด้านล่างนี้
+    // ✅ TODO: เติม method body ด้านล่างนี้
     // ══════════════════════════════════════════════════════
 
     /**
@@ -60,8 +60,7 @@ public class ProductController {
      */
     @GetMapping
     public Flux<Product> getAll() {
-        // TODO: เติม code ตรงนี้
-        return null; // ← แก้บรรทัดนี้
+        return service.getAll(); // ← แก้บรรทัดนี้
     }
 
     /**
@@ -74,8 +73,7 @@ public class ProductController {
      */
     @PostMapping
     public Mono<Product> save(@RequestBody Product product) {
-        // TODO: เติม code ตรงนี้
-        return null; // ← แก้บรรทัดนี้
+        return service.save(product); // ← แก้บรรทัดนี้
     }
 
     /**
@@ -87,8 +85,7 @@ public class ProductController {
      */
     @DeleteMapping("/{id}")
     public Mono<Void> delete(@PathVariable String id) {
-        // TODO: เติม code ตรงนี้
-        return null; // ← แก้บรรทัดนี้
+         return service.delete(id);
     }
 
     /**
@@ -100,8 +97,7 @@ public class ProductController {
      */
     @GetMapping("/category/{category}")
     public Flux<Product> getByCategory(@PathVariable String category) {
-        // TODO: เติม code ตรงนี้
-        return null; // ← แก้บรรทัดนี้
+        return service.getByCategory(category); // ← แก้บรรทัดนี้
     }
 
     /**
@@ -113,7 +109,6 @@ public class ProductController {
      */
     @GetMapping("/{id}/price")
     public Mono<Double> getDiscountedPrice(@PathVariable String id) {
-        // TODO: เติม code ตรงนี้
-        return null; // ← แก้บรรทัดนี้
+        return service.getDiscountedPrice(id); // ← แก้บรรทัดนี้
     }
 }
